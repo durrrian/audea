@@ -1,0 +1,166 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url = env("DATABASE_URL")
+}
+
+model User {
+    id                              String                      @id @default(auto()) @map("_id") @db.ObjectId
+    clerkUserId                     String                      @unique
+    firstName                       String
+    lastName                        String
+    email                           String                      @unique
+    createdAt                       DateTime
+    username                        String?
+    notionPageId                    String?
+    invitedByUserId                 String?                     @db.ObjectId
+    subscription                    Subscription?
+    content                         Content[]
+    contentSettings                 ContentSettings?
+    notionAccount                   NotionAccount?
+    stripeCustomer                  StripeCustomer?
+    sharedContent                   SharedContent[]
+}
+
+model StripeCustomer {
+    id                  String                  @id @default(auto()) @map("_id") @db.ObjectId
+    email               String                  @unique
+    name                String
+    stripeCustomerId    String                  @unique
+    clerkUserId         String                  @unique
+    user                User?                   @relation(fields: [userId], references: [id])
+    userId              String                  @unique @db.ObjectId
+    stripePaidObject    StripePaidObject[]
+}
+
+model StripePaidObject {
+    id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+    sessionId               String              @unique
+    clerkUserId             String
+    stripeCustomer          StripeCustomer?     @relation(fields: [stripeCustomerDbId], references: [id])
+    stripeCustomerDbId      String              @db.ObjectId
+    redeem                  Boolean
+}
+
+model DeletedAccount {
+    id                  String          @id @default(auto()) @map("_id") @db.ObjectId
+    email               String          @unique
+}
+
+model Subscription {
+    id                  String              @id @default(auto()) @map("_id") @db.ObjectId
+    type                SubscriptionType
+    createdAt           DateTime
+    startDate           DateTime
+    endDate             DateTime
+    user                User?               @relation(fields: [userId], references: [id])
+    userId              String              @unique @db.ObjectId
+    extended            Boolean
+    clerkUserId         String              @unique
+}
+
+enum SubscriptionType {
+    TRIAL
+    MONTHLY
+    LIFETIME
+    LIFETIME40
+    YEARLY
+    EARLYADOPTER
+}
+
+model TypeOfPrompt {
+    id                  String              @id @default(auto()) @map("_id") @db.ObjectId
+    displayName         String
+    systemPrompt        String
+    createdAt           DateTime
+    content             Content[]
+    contentSettings     ContentSettings[]
+}
+
+model Content {
+    id                      String                  @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt               DateTime
+    title                   String?
+    s3ObjectName            String?
+    transcript              String?
+    gptGenerated            String?
+    typeOfPrompt            TypeOfPrompt?           @relation(fields: [typeOfPromptId], references: [id])
+    typeOfPromptId          String?                 @db.ObjectId
+    user                    User                    @relation(fields: [userId], references: [id])
+    userId                  String                  @db.ObjectId
+    writingStyle            String?
+    outputLanguage          OutputLanguage?
+    generatedNotionPage     GeneratedNotionPage?
+    sharedContent           SharedContent?
+}
+
+model SharedContent {
+    id                      String                  @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt               DateTime
+    title                   String
+    gptObject               String
+    user                    User                    @relation(fields: [userId], references: [id])
+    userId                  String                  @db.ObjectId
+    content                 Content                 @relation(fields: [contentId], references: [id])
+    contentId               String                  @unique @db.ObjectId
+    username                String
+    generatedId             String
+    description             String
+}
+
+model ContentSettings {
+    id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt               DateTime
+    lastUpdate              DateTime
+    user                    User                @relation(fields: [userId], references: [id])
+    userId                  String              @unique @db.ObjectId
+    writingStyle            String
+    outputLanguage          OutputLanguage
+    typeOfPrompt            TypeOfPrompt        @relation(fields: [typeOfPromptId], references: [id])
+    typeOfPromptId          String              @db.ObjectId
+}
+
+enum OutputLanguage {
+    TRANSCRIPT
+    ENGLISH
+    BAHASAINDONESIA
+    CHINESE
+    HINDI
+    JAPANESE
+    SPANISH
+    FRENCH
+    RUSSIAN
+    URDU
+    ARABIC
+    ASK
+}
+
+model NotionAccount {
+    id                      String                  @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt               DateTime
+    accessToken             String
+    workspaceName           String
+    workspaceIcon           String?
+    workspaceId             String
+    ownerUserId             String
+    botId                   String
+    primaryDatabase         String?
+    automaticPost           Boolean
+    user                    User?                   @relation(fields: [userId], references: [id])
+    userId                  String                  @db.ObjectId @unique
+    clerkUserId             String                  @unique
+    generatedNotionPage     GeneratedNotionPage[]
+}
+
+model GeneratedNotionPage {
+    id                      String              @id @default(auto()) @map("_id") @db.ObjectId
+    notionPageId            String              @unique
+    url                     String
+    content                 Content?            @relation(fields: [contentId], references: [id])
+    contentId               String              @unique @db.ObjectId
+    notionAccount           NotionAccount?      @relation(fields: [notionAccountId], references: [id])
+    notionAccountId         String              @db.ObjectId
+}
