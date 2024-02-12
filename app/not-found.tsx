@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <div className='min-h-screen min-w-screen flex items-center justify-center select-none'>
-      <div className='flex h-full w-full flex-col justify-center gap-6'>
+    <div className='min-w-screen flex min-h-screen select-none items-center justify-center'>
+      <div className='flex h-full w-full flex-col justify-center gap-6 px-2 md:px-4'>
         <div className='flex scale-75 items-center gap-2 self-center md:scale-100'>
           <div
             className='flex animate-pulse'
@@ -98,7 +98,7 @@ export default function NotFound() {
         <div className='flex justify-center'>
           <Link href='/'>
             <Button size='lg'>
-              <ArrowLeft className='mr-2 w-4 h-4' /> Back to Audea
+              <ArrowLeft className='mr-2 h-4 w-4' /> Back to Audea
             </Button>
           </Link>
         </div>

@@ -8,6 +8,7 @@ import { ViewportProvider } from '@/provider/viewport-provider'
 import GTag from './gtag'
 import { AudioPolyfill } from './audio-polyfill'
 import { QueryProvider } from '@/provider/query-provider'
+import { ClerkProvider } from '@clerk/nextjs'
 
 export const metadata: Metadata = meta
 
@@ -17,22 +18,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
-      <body className={TTInterfaces.className}>
-        <QueryProvider>
-          <ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
-            <ViewportProvider>
-              {children}
+    <ClerkProvider>
+      <html lang='en' suppressHydrationWarning>
+        <body className={TTInterfaces.className}>
+          <QueryProvider>
+            <ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
+              <ViewportProvider>
+                {children}
 
-              <Toaster />
+                <Toaster />
 
-              <AudioPolyfill />
-            </ViewportProvider>
-          </ThemeProvider>
-        </QueryProvider>
-      </body>
+                <AudioPolyfill />
+              </ViewportProvider>
+            </ThemeProvider>
+          </QueryProvider>
+        </body>
 
-      <GTag />
-    </html>
+        <GTag />
+      </html>
+    </ClerkProvider>
   )
 }

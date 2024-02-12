@@ -15,7 +15,7 @@ import { Button, LottieAnimation } from '@/components'
 import { toast } from 'sonner'
 import { whisper } from './whisper'
 import { gpt } from './gpt'
-import { LoadingAnimation } from './loading-animation'
+import { LoadingAnimation } from '@/lib/loading-animation'
 
 export default function MainSection() {
   const [showDemo, setShowDemo] = useState(false)

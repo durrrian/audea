@@ -1,9 +1,10 @@
 'use client'
 
 import { LottieAnimation } from '@/components'
+import cn from '@/utils/cn'
 import { memo } from 'react'
 
-export const LoadingAnimation = memo(() => {
+export const LoadingAnimation = memo(({ className }: { className?: string }) => {
   return (
     <LottieAnimation
       animationConfig={{
@@ -11,7 +12,7 @@ export const LoadingAnimation = memo(() => {
         loop: true,
         autoplay: true,
       }}
-      className='w-72 h-fit'
+      className={cn('h-fit w-72', className)}
     />
   )
 })
