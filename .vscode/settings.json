@@ -1,0 +1,13 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "vsicons.associations.folders": [
+    { "icon": "view", "extensions": ["email"], "format": "svg" },
+    { "icon": "component", "extensions": ["web-ui"], "format": "svg" },
+    { "icon": "bloc", "extensions": ["defer"], "format": "svg" }
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

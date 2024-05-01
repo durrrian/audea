@@ -1,0 +1,9 @@
+{
+  "extends": "@repo/tsconfig/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "lib": ["ES2020"]
+  },
+  "include": ["./client.ts", "./index.ts"],
+  "exclude": ["dist", "build", "node_modules"]
+}

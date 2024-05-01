@@ -1,0 +1,32 @@
+{
+  "name": "@repo/api",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "clean": "rimraf node_modules && rimraf dist"
+  },
+  "dependencies": {
+    "@linear/sdk": "^19.3.0",
+    "@notionhq/client": "^2.2.14",
+    "@repo/clerk-action": "workspace:*",
+    "@repo/prisma": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "axios": "^1.6.8",
+    "encoding": "^0.1.13",
+    "esbuild": "^0.20.2",
+    "fast-glob": "^3.3.2",
+    "midtrans-node-client": "^0.0.6",
+    "posthog-js": "^1.116.6",
+    "resend": "^3.2.0",
+    "tsc-alias": "^1.8.8"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "typescript": "^5.4.5"
+  }
+}

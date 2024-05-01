@@ -1,0 +1,28 @@
+{
+  "name": "@repo/trigger",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf node_modules"
+  },
+  "files": [
+    "index.ts"
+  ],
+  "dependencies": {
+    "@repo/api": "workspace:*",
+    "@repo/email": "workspace:*",
+    "@repo/helper": "workspace:*",
+    "@repo/prisma": "workspace:*",
+    "@trigger.dev/sdk": "^2.3.18",
+    "cheerio": "1.0.0-rc.12",
+    "puppeteer": "^22.6.5",
+    "puppeteer-core": "^22.6.5",
+    "react": "^18.2.0",
+    "zod": "3.22.3"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "^20.12.2",
+    "@types/react": "^18.2.73"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@repo/tsconfig/base.json",
+  "include": ["src", "./trigger.ts"],
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "lib": ["ES2015", "DOM"],
+    "types": ["@repo/tsconfig/process-env.d.ts", "node"]
+  }
+}

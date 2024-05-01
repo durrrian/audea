@@ -1,0 +1,9 @@
+{
+  "extends": "@repo/tsconfig/base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true
+  },
+  "include": ["./cn.ts", "./cva.ts", "./index.cjs"],
+  "exclude": ["dist", "build", "node_modules"]
+}

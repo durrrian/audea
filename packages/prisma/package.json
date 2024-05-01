@@ -1,0 +1,38 @@
+{
+  "name": "@repo/prisma",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "./dist/client.js"
+  ],
+  "scripts": {
+    "build": "prisma generate && node build.mjs",
+    "build:prisma": "prisma generate",
+    "format": "prisma format",
+    "clean": "rimraf node_modules",
+    "prisma:generate": "prisma generate",
+    "studio": "prisma studio",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:migrate:dev": "prisma migrate dev",
+    "prisma:push": "prisma db push --skip-generate"
+  },
+  "dependencies": {
+    "@prisma/client": "5.11.0",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.1",
+    "prisma": "5.11.0",
+    "ts-pattern": "^5.0.8",
+    "@repo/tsconfig": "workspace:*",
+    "esbuild": "^0.20.2",
+    "fast-glob": "^3.3.2",
+    "tsc-alias": "^1.8.8"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "5.4.3",
+    "@repo/eslint-config": "workspace:*"
+  }
+}

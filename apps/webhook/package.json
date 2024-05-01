@@ -1,0 +1,37 @@
+{
+  "name": "webhook",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "with-env": "dotenv -e ../../.env --",
+    "dev": "pnpm with-env next dev -p 4444",
+    "build": "next build",
+    "start": "pnpm with-env next start -p 4444",
+    "lint": "eslint . --max-warnings 0",
+    "clean": "rimraf .next && rimraf node_modules"
+  },
+  "dependencies": {
+    "@clerk/clerk-sdk-node": "^4.13.12",
+    "@repo/api": "workspace:*",
+    "@repo/email": "workspace:*",
+    "@repo/helper": "workspace:*",
+    "@repo/prisma": "workspace:*",
+    "@repo/trigger": "workspace:*",
+    "next": "14.1.4",
+    "puppeteer": "^22.6.5",
+    "puppeteer-core": "^22.6.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "svix": "^1.21.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "^20.12.2",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.1.4",
+    "typescript": "^5.4.3"
+  }
+}

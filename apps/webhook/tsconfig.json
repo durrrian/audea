@@ -1,0 +1,13 @@
+{
+  "extends": "@repo/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "allowJs": true,
+    "strictNullChecks": true,
+    "types": ["@repo/tsconfig/process-env.d.ts", "node", "./process-env.d.ts"]
+  },
+  "include": ["next-env.d.ts", "next.config.js", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js"],
+  "exclude": ["node_modules"]
+}

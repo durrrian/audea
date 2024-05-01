@@ -1,0 +1,38 @@
+{
+  "name": "Supercuan Saham",
+  "short_name": "Supercuan Saham",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1F365F",
+  "theme_color": "#1F365F",
+  "description": "Komunitas value investor by Alvin Tanasta.",
+  "shortcuts": [
+    {
+      "name": "See portofolio",
+      "short_name": "See portofolio",
+      "description": "See Alvin's total portofolio",
+      "url": "/portofolio",
+      "icons": [{ "src": "/manifest/icons/128x128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "Settings",
+      "short_name": "Settings",
+      "description": "Change your Supercuan Saham's settings",
+      "url": "/settings",
+      "icons": [{ "src": "/manifest/icons/128x128.png", "sizes": "128x128" }]
+    }
+  ],
+    "icons": [
+      { "src": "./manifest/ios/16x16.png", "sizes": "16x16", "type": "image/png" },
+      { "src": "./manifest/ios/32x32.png", "sizes": "32x32", "type": "image/png" },
+      { "src": "./manifest/ios/60x60.png", "sizes": "60x60", "type": "image/png" },
+      { "src": "./manifest/ios/64x64.png", "sizes": "64x64", "type": "image/png" },
+      { "src": "./manifest/ios/90x90.png", "sizes": "90x90", "type": "image/png" },
+      { "src": "./manifest/ios/128x128.png", "sizes": "128x128", "type": "image/png" },
+      { "src": "./manifest/ios/192x192.png", "sizes": "192x192", "type": "image/png" },
+      { "src": "./manifest/ios/512x512.png", "sizes": "512x512", "type": "image/png" },
+      { "src": "./manifest/ios/512x512.svg", "sizes": "512x512", "type": "image/svg", "purpose": "maskable" }
+    ],
+    "edge_side_panel": { "preferred_width": 748 }
+  }
+  

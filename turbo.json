@@ -1,0 +1,53 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env"],
+  "globalEnv": [
+    "NODE_ENV",
+    "DATABASE_URL",
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+    "CLERK_SECRET_KEY",
+    "NEXT_PUBLIC_ADS_URL",
+    "NEXT_PUBLIC_WEB_URL",
+    "NEXT_PUBLIC_MARKETING_URL",
+    "NEXT_PUBLIC_ADMIN_URL",
+    "NEXT_PUBLIC_WEBHOOK_URL",
+    "NEXT_PUBLIC_TELEGRAM_URL",
+    "RESEND_API_KEY",
+    "TRIGGER_API_KEY",
+    "TRIGGER_API_URL",
+    "NEXT_PUBLIC_TRIGGER_PUBLIC_API_KEY",
+    "TELEGRAM_BOT_TOKEN",
+    "NOTION_INTEGRATION",
+    "NEXT_PUBLIC_LINEAR_TOKEN",
+    "MIDTRANS_SERVER_KEY",
+    "NEXT_PUBLIC_MIDTRANS_CLIENT_KEY",
+    "NEXT_PUBLIC_POSTHOG_KEY",
+    "NEXT_PUBLIC_POSTHOG_HOST",
+    "INSTAGRAM_USER_ID",
+    "INSTAGRAM_TOKEN",
+    "CLERK_WEBHOOK_SIGNING_SECRET"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build", "^prisma:generate"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "build/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "cache": false
+    },
+    "prisma:generate": {
+      "cache": false
+    },
+    "dev": {
+      "dependsOn": ["^prisma:generate"],
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
