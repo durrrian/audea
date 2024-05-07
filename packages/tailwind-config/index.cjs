@@ -52,14 +52,6 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))',
         },
 
-        supercuan: {
-          primary: '#1F365F',
-          secondary: '#FEFFF7',
-          whitePrimary: '#F9FAFB',
-          blackPrimary: '#141414',
-          error: '#DC2626',
-          greyPrimary: '#D6D7CF',
-        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

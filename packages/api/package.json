@@ -13,7 +13,6 @@
   "dependencies": {
     "@linear/sdk": "^19.3.0",
     "@notionhq/client": "^2.2.14",
-    "@repo/clerk-action": "workspace:*",
     "@repo/prisma": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "axios": "^1.6.8",

@@ -11,7 +11,7 @@
     "hooks/",
     "icons/",
     "animation/",
-    "index.tsx"
+    "index.ts"
   ],
   "scripts": {
     "lint": "eslint .",
@@ -54,7 +54,6 @@
     "@repo/assets": "workspace:*",
     "@repo/helper": "workspace:*",
     "@repo/prisma": "workspace:*",
-    "@repo/clerk-action": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@tabler/icons-react": "^3.1.0",
     "@tanstack/react-query": "^5.28.9",

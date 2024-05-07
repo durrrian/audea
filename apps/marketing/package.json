@@ -17,7 +17,6 @@
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.1.4",
     "@repo/api": "workspace:*",
-    "@repo/clerk-action": "workspace:*",
     "@repo/assets": "workspace:*",
     "@repo/helper": "workspace:*",
     "@repo/prisma": "workspace:*",
@@ -26,7 +25,6 @@
     "@tanstack/react-query": "^5.28.9",
     "@types/mdx": "^2.0.12",
     "axios": "^1.6.8",
-    "cheerio": "1.0.0-rc.12",
     "framer-motion": "^11.0.24",
     "lucide-react": "^0.363.0",
     "next": "14.1.4",
@@ -35,7 +33,6 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.2",
     "react-icons": "^5.0.1",
-    "recharts": "^2.12.3",
     "remark-unwrap-images": "^4.0.0",
     "zod": "3.22.3"
   },
